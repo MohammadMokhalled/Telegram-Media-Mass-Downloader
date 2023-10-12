@@ -1,0 +1,5 @@
+__pycache__
+anon.session
+anon.session-journal
+api_data.enc
+encryption_key.key

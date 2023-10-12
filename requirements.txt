@@ -1,0 +1,3 @@
+telethon  # As of my last training cut-off in January 2022; you might have a newer version.
+cryptography  # Again, this version might be different for you.
+piexif  # This could have a newer version too.
