@@ -3,7 +3,7 @@
 import os
 import datetime
 from telethon.sync import TelegramClient
-from telethon.tl.types import DocumentAttributeFilename, MessageMediaPhoto
+from telethon.tl.types import DocumentAttributeFilename, MessageMediaPhoto, MessageMediaDocument
 import piexif
 
 OUTPUT_DIRECTORY = "telegram_media"
@@ -52,7 +52,7 @@ def download_media_from_chat(client, chat_id, download_images=True, download_vid
                 if set_image_timestamp_flag and file_path:
                     set_image_timestamp(file_path, message.date)
 
-            elif download_videos and message.media and message.media.document:
+            elif download_videos and isinstance(message.media, MessageMediaDocument):
                 for attr in message.media.document.attributes:
                     if isinstance(attr, DocumentAttributeFilename):
                         if attr.file_name.lower().endswith(('.mp4', '.mkv', '.webm', '.mov')):
